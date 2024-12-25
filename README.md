@@ -1,8 +1,8 @@
 # CursoCS
 Repositório para registro dos exercícios do curso de C#
-'''
+`
 // 1. Criar um dicionário que represente um aluno, com uma lista de notas, e mostre a média de suas notas na tela.
-
+`
 // ---- NOTAS E MÉDIAS DE ALUNOS ----
 Dictionary<string, Dictionary<string, List<double>>> alunos = new Dictionary<string, Dictionary<string, List<double>>>();
 
