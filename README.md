@@ -277,7 +277,6 @@ Utilize um dicionário para armazenar as perguntas e as respostas corretas.
 using System;
 
 Dictionary<string, string> perguntas = new Dictionary<string, string>();
-//Dictionary<int, Dictionary<string, string>> perguntas = new(); //Dictionary<int, Dictionary<string, string>>();
 
 perguntas.Add("Quanto é 2 + 2?", "4");
 perguntas.Add("Quanto é 5 + 3?", "8");
@@ -413,19 +412,14 @@ void ExcluirPergunta()
     Console.Clear();
     ExibirLogo();
 
-    //Eu havia criado este Dicionário abaixo, mas para mostrar as perguntas para que o usuário escolha qual excluir,
-    //seria melhor se o usuário somente digitasse um número referente à pergunta que quisesse. Para isso precisaria usar
-    //índice, mas Dicionário não usa índice. Então optei por converter o Dicionário em índice para ter essa facilidade de manipular
-    //as perguntas através de índices, daí eu excluo a pergunta de acordo com o que o usuário escolheu mesmo anipulando o Dicionário,
-    //conforme segue o código abaixo.
-        
-    //var listaDePerguntas = new List<KeyValuePair<string, string>>(perguntas);
+    //Eu havia criado um Dicionário para mostrar as perguntas ao usuário para que ele escolhesse qual escluir,
+    //mas para mostrar as perguntas para que o usuário escolha qual excluir,seria melhor se o usuário somente digitasse
+    //um número referente à pergunta que quisesse. 
+    //Para isso precisaria usar índice, mas Dicionário não usa índice, então optei por converter o Dicionário em lista para ter essa facilidade
+    //de manipular as perguntas através de índices, daí eu excluo a pergunta de acordo com o número da pergunta que o usuário escolheu
+    //usando o índice de uma lista para manipular o equivalente dentro do Dicionário conforme segue o código abaixo.
     
-    
-    //Converte o Dicionário para uma Lista para que eu consiga acessar através do índice um item específico
-    //digitado pelo usuário para excluir
-    
-    
+    //Converte o Dicionário para uma Lista para que eu consiga acessar através do índice um item específico digitado pelo usuário para excluir
     List<KeyValuePair<string, string>> listaDePerguntas = new List<KeyValuePair<string, string>>(perguntas); 
 
     Console.WriteLine("Estas são as perguntas e respostas CADASTRADASSSS:");
@@ -480,10 +474,8 @@ void Jogar()
 
     // Apesar de podermos ter diversas perguntas cadastradas, eu quero que apenas 3 sejam feitas durante o jogo, porém não posso deixar
     // que sejam sempre feitas as mesmas 3 perguntas. Para isso fiz uso do método Random. O método Random serve para gerar números aleatórios,
-    // que neste caso, vai gerar números que vão servir de base para a nova ordenação das perguntas, já que a seleção das perguntas será sempre
-    // as 3 primeiras.
-    // Além do Random, ainda vou precisar usar o método OrderBy que vai ordenar as perguntas usando como índice para a ordenação o resultado 
-    // do Random.
+    // que neste caso, vai gerar números que vão servir de base para a nova ordenação das perguntas, já que a seleção das perguntas será sempre as 3 primeiras.
+    // Além do Random, ainda vou precisar usar o método OrderBy que vai ordenar as perguntas, usando como índice para a ordenação o resultado do Random.
     // Então basicamente tenho 2 ações aqui, onde uma é pedir que as perguntas sejam ordenadas (perguntas.OrderBy()) e dentro de OrderBy o parâmetro
     // de índice para esta ordenação será o resultado de random, ficando perguntas.OrderBy(x => random.Next()).Take(3).
     // Dentro de Random temos:
